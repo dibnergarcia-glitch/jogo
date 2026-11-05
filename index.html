@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ping Pong - Crouton Alpha</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="wrap">
+    <header>
+      <h1>🏓 PING PONG</h1>
+      <p>Clássico reinventado • Neon</p>
+    </header>
+
+    <section class="stage">
+      <canvas id="game" width="800" height="500" aria-label="Jogo de Ping Pong"></canvas>
+
+      <!-- Menu -->
+      <div id="menu" class="overlay">
+        <h2>PING PONG</h2>
+        <p>Escolha o modo de jogo</p>
+        <div class="btn-col">
+          <button data-mode="ai" class="btn primary">▶ Jogador vs IA</button>
+          <button data-mode="pvp" class="btn">👥 2 Jogadores</button>
+        </div>
+        <div class="row">
+          <label>Dificuldade IA:
+            <select id="difficulty">
+              <option value="easy">Fácil</option>
+              <option value="medium" selected>Médio</option>
+              <option value="hard">Difícil</option>
+            </select>
+          </label>
+          <label>Pontos p/ vencer:
+            <select id="winScore">
+              <option value="5">5</option>
+              <option value="7" selected>7</option>
+              <option value="11">11</option>
+            </select>
+          </label>
+        </div>
+        <div class="help">
+          <strong>Controles:</strong><br>
+          Jogador 1: <kbd>W</kbd> / <kbd>S</kbd> ou mouse/toque<br>
+          Jogador 2: <kbd>↑</kbd> / <kbd>↓</kbd><br>
+          <kbd>P</kbd> Pausar • <kbd>R</kbd> Reiniciar • <kbd>Espaço</kbd> Servir
+        </div>
+      </div>
+
+      <!-- Pause -->
+      <div id="pause" class="overlay hidden">
+        <h2>Pausado</h2>
+        <div class="btn-col">
+          <button id="resumeBtn" class="btn primary">▶ Continuar</button>
+          <button id="restartBtn" class="btn">↻ Reiniciar</button>
+          <button id="menuBtn" class="btn ghost">Menu</button>
+        </div>
+      </div>
+
+      <!-- Game over -->
+      <div id="gameover" class="overlay hidden">
+        <h2 id="winnerText">Jogador 1 venceu!</h2>
+        <p id="finalScore" class="final"></p>
+        <div class="btn-col">
+          <button id="againBtn" class="btn primary">↻ Jogar novamente</button>
+          <button id="menuBtn2" class="btn ghost">Menu</button>
+        </div>
+      </div>
+
+      <div id="serveHint" class="serve-hint hidden">Pressione ESPAÇO para servir</div>
+    </section>
+
+    <footer>
+      <span>P = Pausar • R = Reiniciar • Feito com HTML5 Canvas</span>
+    </footer>
+  </main>
+
+  <script src="js/audio.js"></script>
+  <script src="js/input.js"></script>
+  <script src="js/ball.js"></script>
+  <script src="js/paddle.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
